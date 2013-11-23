@@ -3,7 +3,7 @@
 require('includes/predispatch.php');
 
 
-if (isset($_SESSION)&&$_SESSION['loggedIn']==true){
+if (isset($_SESSION['loggedIn']) && $_SESSION['loggedIn']==true){
    header('Location: http://www.example.com/');
 exit;
 }

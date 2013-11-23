@@ -6,7 +6,6 @@
 
 //starting session for login process
 session_start();
-$_SESSION['loggedIn']==false;
 
 
 
