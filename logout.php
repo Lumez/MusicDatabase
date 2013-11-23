@@ -1,6 +1,6 @@
 <?php
 
-require_once(includes/predispatch.php);
+require_once("includes/predispatch.php");
 
 $_SESSION = array();
     
