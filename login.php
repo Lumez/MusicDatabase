@@ -39,7 +39,7 @@ if($username&&$password)
 			//this code will be executed if all checks are passed
 			// A Successful Login!
 			
-			echo "'$username' is logged in! <a href='member.php'>Click here</a> to continue.";
+			echo "'$username' is logged in! <a href='#'>Click here</a> to continue.";
 			$_SESSION['username']=$username;
 		}
 		else 
