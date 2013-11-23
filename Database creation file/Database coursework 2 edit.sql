@@ -69,11 +69,17 @@ CREATE TABLE `play_list` (
 DROP TABLE IF EXISTS `authorisation`;
 CREATE TABLE `authorisation` (
 	`userID` int(15) NOT NULL auto_increment,
-	`username` int(15) NOT NULL unique,
+	`username` varchar(20) NOT NULL unique,
 	`password` char(32) NOT NULL unique, /* md5 hash contains 32 digits */
 	PRIMARY KEY  (`userID`)
 );
 
+SELECT * FROM authorisation;
+
+DELETE from authorisation where userID =1;
+
+INSERT INTO authorisation (username,password)
+VALUES ("Aaron", MD5("Aaron"));
 /* DROP ALL TABLE */
 
 DROP TABLE play_list;
