@@ -1,7 +1,5 @@
 <?php
-//database connect or kills script and displays MySql error
-$connect = mysql_connect('hostname', 'username', 'password') or die (mysql_error());
-$db = mysql_select_db("schema", $connect);
+require(includes/dbConnect.php);
 
 	
 if(!isset($_POST['search'])) {
