@@ -1,3 +1,5 @@
+<?php require('includes/predispatch.php');
+
 <?php
 if ($_SESSION['loggedIn']==true){
    header('Location: http://www.example.com/');
