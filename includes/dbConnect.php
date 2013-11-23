@@ -5,8 +5,10 @@ $username = 'gc1e12';
 $password = '4980';
 $schema = 'db_gc1e12';
 
-//database connect or kill script and display MySql error
-$connect = mysql_connect($hostname, $username, $password) or die (mysql_error());
-$db = mysql_select_db($schema, $connect);
+//create database object and connect to it, or display error
+$db = new mysqli($hostname, $username, $password, $schema);
+if ($db->connection_errno) {
+	echo "Failed to connect to MySQL: " . $db->connect_error;
+}
 
 ?>
