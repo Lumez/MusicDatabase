@@ -38,7 +38,8 @@ if($username&&$password)
 		{
 			//this code will be executed if all checks are passed
 			// A Successful Login!
-			
+			$_SESSION["loggedIn"] = true;
+			$_SESSION["username"] = $fetch_username;
 			echo "'$username' is logged in! <a href='#'>Click here</a> to continue.";
 			$_SESSION['username']=$username;
 		}
