@@ -7,7 +7,7 @@ $schema = 'db_gc1e12';
 
 //create database object and connect to it, or display error
 $db = new mysqli($hostname, $username, $password, $schema);
-if ($db->connection_errno) {
+if ($db->connect_errno) {
 	echo "Failed to connect to MySQL: " . $db->connect_error;
 }
 
