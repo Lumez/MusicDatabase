@@ -1,6 +1,8 @@
-<?php require('includes/predispatch.php');
-
 <?php
+
+require('includes/predispatch.php');
+
+
 if ($_SESSION['loggedIn']==true){
    header('Location: http://www.example.com/');
 exit;
