@@ -1,7 +1,7 @@
 <?php
 
-require(includes/predispatch.php);
-require(includes/dbConnect.php);
+require_once("includes/predispatch.php");
+require("includes/dbConnect.php");
 
 // User Inputs taken from HTML form and stored in these variables
 //TODO: ADD CHECKS
