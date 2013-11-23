@@ -64,6 +64,17 @@ CREATE TABLE `play_list` (
 	FOREIGN KEY (songID) REFERENCES song(songID)
 );
 
+/* LOGIN */
+
+DROP TABLE IF EXISTS `authorisation`;
+CREATE TABLE `authorisation` (
+	`userID` int(15) NOT NULL auto_increment,
+	`username` int(15) NOT NULL unique,
+	`password` char(32) NOT NULL unique, /* md5 hash contains 32 digits */
+	PRIMARY KEY  (`userID`)
+);
+
+/* DROP ALL TABLE */
 
 DROP TABLE play_list;
 DROP TABLE song;
