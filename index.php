@@ -4,8 +4,8 @@ require('includes/predispatch.php');
 
 
 if (isset($_SESSION['loggedIn']) && $_SESSION['loggedIn']==true){
-   header('Location: musician.php');
-exit;
+    header('Location: home.php');
+    exit;
 }
 
 ?>
@@ -17,7 +17,7 @@ exit;
     //$page->setTitle("Red Carpet Films - Latest Releases");
     //$page->setActiveClass("index");
     $page->streamTop();
-?>         
+?>
 
 <div class = "mainBody">
 <form action='login.php' method='POST'>
