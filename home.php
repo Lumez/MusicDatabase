@@ -14,9 +14,13 @@
 ?>
 
 <div class = "mainBody">
-	<h1>Music Database</h1>
+	<h1>Music Database</h1><br/>
 	<h2>Search for a musician...</h2>
 	<?php require('includes/search_form.php'); ?>
+	<br/><hr/><br/>
+	<h2>Add Musician</h2>
+	<?php require('includes/addMusician_form.php'); ?>
+	<br/>
 </div>
 
 <?php
