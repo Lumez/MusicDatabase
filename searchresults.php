@@ -13,30 +13,35 @@
 
 <?php
 	
-	//TODO: ADD CHECKS HERE
-	if(!isset($_POST['search'])) {
-		
-	}
+	try {
+		if(!isset($_POST['search']) || empty($_POST['search']) || !is_string($_POST['search']))
+			throw new Exception("Invalid Search. Please try again.", 1);
 
-	//stores the post parameter from the HTML form
-	$user_input= $_POST['search'];
+		//stores the post parameter from the HTML form
+		$userInput= $_POST['search'];
 
-	//SQL query - will select entries if they are LIKE the user input $_POST['search']
-	$musicians = $db->query("SELECT * FROM musician WHERE name LIKE '%{$user_input}%'");
+		//SQL query - will select entries if they are LIKE the user input $_POST['search']
+		$musicians = $db->query("SELECT * FROM musician WHERE name LIKE '%{$userInput}%'");
 
-	//check to see if there are results
-	//if so, show the results, else, show "No Results Found."
-	if ($musicians->num_rows != 0) {
-		while($musician = $musicians->fetch_object()) {
+		//check to see if there are results
+		//if so, show the results, else, show "No Results Found."
+		if ($musicians->num_rows != 0) {
+			while($musician = $musicians->fetch_object()) {
+				?>
+				<a href="musician.php?id=<?=$musician->musicianID?>"><?=$musician->name?></a> <!-- Printing out name of each result -->
+				<?php
+			}
+		} else {
 			?>
-			<p><?=$musician->name?></p> <!-- Printing out name of each result -->
+			<p>No Results Found.</p>
 			<?php
 		}
-	} else {
+	} catch (Exception $e) {
 		?>
-		<p>No Results Found.</p>
+			<p><?php echo $e->getMessage(); ?></p><a href="home.php">Home</a>
 		<?php
 	}
+	
 ?>
 </div>
 <?php
