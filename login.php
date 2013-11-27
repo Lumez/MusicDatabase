@@ -32,6 +32,9 @@ if($username&&$password)
 		$user = $authorisation->fetch_object();
 		$_SESSION["loggedIn"] = true;
 		$_SESSION["username"] = $user->username;
+		header('Location: index.php');
+
+
 	} else {
 		echo "Invalid Login!";
 	}
