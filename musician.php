@@ -42,16 +42,19 @@
                             <h3><a href="#">Lists</a></h3>
                             <table class="" >
                                 <tr>
-                                    <th>Album</th><th>Song</th>
+                                    <th>AlbumID</th><th>Title</th><th>Date</th>
                                 </tr>
             <?php
                                     while ($album = $albums->fetch_object()){
 
                                         echo("<tr>");
 
-                                            echo("<td>asdasdasd</td>");
+                                            echo("<td>$album->AlbumID</td>");
                                                     
-                                            echo("<td>222222</td>");
+                                            echo("<td>$album->title</td>");
+
+                                            echo("<td>$album->date</td>");
+
 
                                         echo("</tr>");
 
