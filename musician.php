@@ -7,52 +7,66 @@
     $page->streamTop();
 ?>           
             
+            
+            
+
+
             <div class = "mainBody">
-                <h1>Hello, world!</h1>
+                <h1> target Musician Name's Library</h1>
+
                 <p><a href = "#">Back to Homepage</a></p>
-                
-                <div id="accord">
-                    <div id="content">
-                        <h3><a href="#">2012-2013</a></h3>
-                        <table class="students" >
-                            <tr>
-                                <th>Album</th><th>Song</th>
-                            </tr>
-                            <tr>
-                                <td>Sevinj Yaqubova</td><td>2012-2013</td>
-                            </tr>
-                            <tr>
-                                <td>Tarlan Isgandarov</td><td>2012-2013</td>
-                            </tr>
-                        </table>
-                                
-                        <h3><a href="#">2011-2012</a></h3>
-                        <table class="students">
-                            <tr>
-                                <th>Album</th><th>Song</th>
-                            </tr>
-                            <tr>
-                                <td>Nigar Guliyeva</td><td>2011-2014</td>
-                            </tr>
-                            <tr>
-                                <td>Orkhan Bakhshiyev</td><td>2011-2012</td>
-                            </tr>
-                        </table>
-                                    
-                        <h3><a href="#">2010-2011</a></h3>
-                        <table class="students">
-                            <tr>
-                                <th>Album</th><th>Song</th>
-                            </tr>
-                            <tr>
-                                <td>Elnur Mammadov</td><td>2010-2011</td>
-                            </tr>
-                            <tr>
-                                <td>Kanan Farzaliyev</td><td>2010-2011</td>
-                            </tr>
-                        </table>
-                    </div><br/><br/>   
-                </div>  <!--END OF DIV "ACCORD"-->
+
+
+            <?php
+
+                //check the no of album
+                $targetID = 1;
+
+                $albums= $db->query("SELECT * FROM album WHERE musicianID = $targetID");
+
+                //print_r($albums->num_rows);
+
+                //exit();
+
+
+
+                //if there are more than 1 album show accordance ELSE Error message say no album found
+
+                if(!$albums->num_rows == 0){
+
+                    echo("<p>Musician's Library is empty!</p>");
+
+
+                }else{
+            ?>
+
+                    <div id="accord">
+                        <div id="content">
+                            <h3><a href="#">Lists</a></h3>
+                            <table class="" >
+                                <tr>
+                                    <th>Album</th><th>Song</th>
+                                </tr>
+            <?php
+                                    while ($album = $albums->fetch_object()){
+
+                                        echo("<tr>");
+
+                                            echo("<td>asdasdasd</td>");
+                                                    
+                                            echo("<td>222222</td>");
+
+                                        echo("</tr>");
+
+                                    }
+
+                }
+
+            ?> 
+                            </table>
+                        </div>
+                    </div><!--END OF DIV "ACCORD"-->
+
                 <script type="text/javascript" src="js/jquery-ui.js"></script>    <!--JQUERY - UI file for the whole website-->
                 <script type="text/javascript" src="js/uiAccordion.js"></script>  <!--JQUERY - UI - Accordion file for running accordion, should be at the end-->
                 
