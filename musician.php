@@ -12,9 +12,7 @@
 
 
             <div class = "mainBody">
-                <h1> target Musician Name's Library</h1>
-
-                <p><a href = "#">Back to Homepage</a></p>
+                
 
 
             <?php
@@ -23,16 +21,15 @@
                 $targetID = 1;
 
                 $albums= $db->query("SELECT * FROM album WHERE musicianID = $targetID");
+                $musicianName= $db->query("SELECT name FROM musician WHERE musicianID = $targetID")->fetch_object()->name;
 
-                //print_r($albums->num_rows);
-
-                //exit();
+                echo("<h1> $musicianName's Library</h1>");
 
 
 
                 //if there are more than 1 album show accordance ELSE Error message say no album found
 
-                if(!$albums->num_rows == 0){
+                if($albums->num_rows == 0){
 
                     echo("<p>Musician's Library is empty!</p>");
 
@@ -60,7 +57,7 @@
 
                                     }
 
-                }
+                }//end if
 
             ?> 
                             </table>
