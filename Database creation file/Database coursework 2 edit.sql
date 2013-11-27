@@ -1,6 +1,6 @@
 DROP TABLE IF EXISTS `address`;
 CREATE TABLE `address` (
-	`phoneNo` bigint NOT NULL unique,
+	`phoneNo` bigint(13) NOT NULL unique,
 	`Street1` varchar(40) NOT NULL default '',
 	`Street2` varchar(40) NULL,
 	`city` varChar(40) NOT NULL,
@@ -64,8 +64,7 @@ CREATE TABLE `play_list` (
 	FOREIGN KEY (songID) REFERENCES song(songID)
 );
 
-/* LOGIN */
-
+/* LOGIN -----------------------------------------------------------------------*/
 DROP TABLE IF EXISTS `authorisation`;
 CREATE TABLE `authorisation` (
 	`userID` int(15) NOT NULL auto_increment,
@@ -74,14 +73,27 @@ CREATE TABLE `authorisation` (
 	PRIMARY KEY  (`userID`)
 );
 
+
+
 SELECT * FROM authorisation;
 
 DELETE from authorisation where userID =1;
 
 INSERT INTO authorisation (username,password)
 VALUES ("Aaron", MD5("Aaron"));
-/* DROP ALL TABLE */
 
+/* INSERT ROWs ------------------------------------------------------------------ */
+DELETE FROM address where phoneNo=07746302219;     
+SELECT * FROM address;
+
+INSERT INTO address (`phoneNo`,`Street1`,`Street2`,`city`,`Zip code`)
+VALUES(07746302219,"Roll Court", "Glen Eyre Hall", "Hamspire", "SO16 3UF");
+
+/* Add Musician */
+INSERT INTO musician (`name`,`phoneNo`)
+VALUES("Aaron", 07746302219);
+
+/* DROP ALL TABLE ----------------------------------------------------------------*/
 DROP TABLE play_list;
 DROP TABLE song;
 DROP TABLE album;
@@ -89,3 +101,16 @@ DROP TABLE musician_instrument;
 DROP TABLE instrument;
 DROP TABLE musician;
 DROP TABLE address;
+DROP TABLE authorisation;
+
+/* SELECT ALL */
+
+SELECT * FROM play_list;
+SELECT * FROM song;
+SELECT * FROM album;
+SELECT * FROM musician_instrument;
+SELECT * FROM instrument;
+SELECT * FROM musician;
+SELECT * FROM address;
+SELECT * FROM authorisation;
+
