@@ -12,7 +12,8 @@
 	<p><a href = "home.php">Back to Homepage</a></p>
 
 <?php
-
+	
+	//TODO: ADD CHECKS HERE
 	if(!isset($_POST['search'])) {
 		
 	}
@@ -21,10 +22,7 @@
 	$user_input= $_POST['search'];
 
 	//SQL query - will select entries if they are LIKE the user input $_POST['search']
-	$sql_query="SELECT * FROM musician WHERE name LIKE '%".$user_input."%' OR description LIKE '%".$user_input."%'";
-
-	//run the query
-	$musicians = $db->query($sql_query);
+	$musicians = $db->query("SELECT * FROM musician WHERE name LIKE '%{$user_input}%'");
 
 	//check to see if there are results
 	//if so, show the results, else, show "No Results Found."
