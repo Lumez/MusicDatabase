@@ -14,8 +14,7 @@
 <?php
 	
 	try {
-		if(!isset($_POST['search']) || empty($_POST['search']) || !is_string($_POST['search']))
-			throw new Exception("Invalid Search. Please try again.", 1);
+		if(!isset($_POST['search']) || empty($_POST['search'])) throw new Exception("Invalid Search, please try again.");
 
 		//stores the post parameter from the HTML form
 		$userInput= $_POST['search'];
@@ -23,23 +22,15 @@
 		//SQL query - will select entries if they are LIKE the user input $_POST['search']
 		$musicians = $db->query("SELECT * FROM musician WHERE name LIKE '%{$userInput}%'");
 
-		//check to see if there are results
-		//if so, show the results, else, show "No Results Found."
-		if ($musicians->num_rows != 0) {
-			while($musician = $musicians->fetch_object()) {
-				?>
-				<a href="musician.php?id=<?=$musician->musicianID?>"><?=$musician->name?></a> <!-- Printing out name of each result -->
-				<?php
-			}
-		} else {
-			?>
-			<p>No Results Found.</p>
-			<?php
+		//check to see if there are results, if not throw "No Results Found!" exception
+		if ($musicians->num_rows != 0) throw new Exception("No Results Found!");
+		
+		while($musician = $musicians->fetch_object()) {
+			include('partials/search_result.php'); // Printing out name of each result
 		}
+
 	} catch (Exception $e) {
-		?>
-			<p><?php echo $e->getMessage(); ?></p><a href="home.php">Home</a>
-		<?php
+		echo "<p>{$e->getMessage()}</p><a href=\"home.php\">Home</a>";
 	}
 	
 ?>
