@@ -47,11 +47,11 @@ CREATE TABLE `album` (
 DROP TABLE IF EXISTS `song`;
 CREATE TABLE `song` (
 	`songID` int(15) NOT NULL auto_increment,
-	`author` int(15) NOT NULL,
-	`albumID` int(15) NOT NULL unique,
-	`title` varchar(15) NOT NULL,
+	`author` varchar(20) NOT NULL,
+	`albumID` int(15) NOT NULL,
+	`title` varchar(50) NOT NULL,
 	PRIMARY KEY  (`songID`),
-	FOREIGN KEY (author) REFERENCES musician(musicianID),
+	/*FOREIGN KEY (author) REFERENCES musician(musicianID),*/
 	FOREIGN KEY (albumID) REFERENCES album(albumID)
 );
 
@@ -93,7 +93,15 @@ VALUES(07746302219,"Roll Court", "Glen Eyre Hall", "Hamspire", "SO16 3UF");
 INSERT INTO musician (`name`,`phoneNo`)
 VALUES("Aaron", 07746302219);
 
+/* Add Album */
+INSERT INTO album (	`musicianID`,`title`,`date`)
+VALUES(1,"The Hunger Game", NOW());
+
+Select * from album;
 /* DROP ALL TABLE ----------------------------------------------------------------*/
+
+SET FOREIGN_KEY_CHECKS = 0;
+
 DROP TABLE play_list;
 DROP TABLE song;
 DROP TABLE album;
@@ -102,6 +110,8 @@ DROP TABLE instrument;
 DROP TABLE musician;
 DROP TABLE address;
 DROP TABLE authorisation;
+
+SET FOREIGN_KEY_CHECKS = 1;
 
 /* SELECT ALL */
 

@@ -24,7 +24,7 @@
                 $musicianName= $db->query("SELECT name FROM musician WHERE musicianID = $targetID")->fetch_object()->name;
 
                 echo("<h1> $musicianName's Library</h1>");
-
+               
 
 
                 //if there are more than 1 album show accordance ELSE Error message say no album found
@@ -36,25 +36,22 @@
 
                 }else{
             ?>
-
-                    <div id="accord">
-                        <div id="content">
-                            <h3><a href="#">Lists</a></h3>
-                            <table class="" >
+            <br/><br/><br/>
+                    
+                            <table class="">
                                 <tr>
                                     <th>AlbumID</th><th>Title</th><th>Date</th>
                                 </tr>
             <?php
                                     while ($album = $albums->fetch_object()){
 
-                                        echo("<tr>");
+                                        echo(" <tr class='targettablerow' onclick='document.location = 'musician.php';>");
 
-                                            echo("<td>$album->AlbumID</td>");
+                                            echo("<td>$album->albumID</td>");
                                                     
-                                            echo("<td>$album->title</td>");
+                                            echo("<td><a href='musician.php?albumid=$album->albumID'> $album->title </a></td>");
 
                                             echo("<td>$album->date</td>");
-
 
                                         echo("</tr>");
 
@@ -64,8 +61,7 @@
 
             ?> 
                             </table>
-                        </div>
-                    </div><!--END OF DIV "ACCORD"-->
+                        
 
                 <script type="text/javascript" src="js/jquery-ui.js"></script>    <!--JQUERY - UI file for the whole website-->
                 <script type="text/javascript" src="js/uiAccordion.js"></script>  <!--JQUERY - UI - Accordion file for running accordion, should be at the end-->

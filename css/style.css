@@ -85,25 +85,47 @@
 /******************************************************** PAGE TEMPLATE END **********************************************/	
 /******************************************************** MUSICIAN.PHP ***************************************************/
 
-	#accord{
-		width: 500px;
-		font-size: 10.5pt;
-		margin: 50px auto;
-        }
+
 	
-        .students{
-		border-spacing: 15px
-        }
+    table{
+		border-collapse:collapse;
+		/*border-top:1px 1px 1px 1px;*/
+		width:500px;
+		background-color: rgba(255,255,255,0.7);
+		padding:0px 15px;
+    }
+
 	
-	
-	#accord table th{
+	table th{
 		font-size: 19px;
-		text-decoration: underline;
+		text-align: left;
+		border-left:none;
+		border-right:none;
+		border-bottom:1px solid black;
+
+		border-top:1px solid black;
 	}
 	
 	a{
 		color: #1196ee;
+		display: block; 
+		width: 100%; 
+		height: 100%;
 	}
+
+	.targettablerow:hover{
+
+		border-collapse:collapse;
+		background-color: rgba(0,0,0,0.2);
+	}
+
+	table tr a {
+    display:block;
+    height:100%;
+    width:100%;
+}
+
+a { display: block; width: 100%; height: 100%; }
 	
 /******************************************************** MUSICIAN.PHP END ***************************************************/	
 /******************************************************** MENU ***************************************************************/
