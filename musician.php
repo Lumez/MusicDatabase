@@ -12,8 +12,6 @@
 
 
             <div class = "mainBody">
-                
-
 
             <?php
 
@@ -34,43 +32,43 @@
                     echo("<p>Musician's Library is empty!</p>");
 
 
-                }else{
+                } else {
             ?>
 
-                    <div id="accord">
-                        <div id="content">
-                            <h3><a href="#">Lists</a></h3>
-                            <table class="" >
-                                <tr>
-                                    <th>AlbumID</th><th>Title</th><th>Date</th>
-                                </tr>
-            <?php
-                                    while ($album = $albums->fetch_object()){
+            <div id="accord">
+                <div id="content">
+                <?php
+                    while ($album = $albums->fetch_object()) {
+                        $songs = $db->query("SELECT * FROM song WHERE albumID={$album->albumID}");
+                        ?>
 
-                                        echo("<tr>");
-
-                                            echo("<td>$album->AlbumID</td>");
-                                                    
-                                            echo("<td>$album->title</td>");
-
-                                            echo("<td>$album->date</td>");
-
-
-                                        echo("</tr>");
-
-                                    }
-
-                }//end if
-
-            ?> 
-                            </table>
-                        </div>
-                    </div><!--END OF DIV "ACCORD"-->
-
-                <script type="text/javascript" src="js/jquery-ui.js"></script>    <!--JQUERY - UI file for the whole website-->
-                <script type="text/javascript" src="js/uiAccordion.js"></script>  <!--JQUERY - UI - Accordion file for running accordion, should be at the end-->
+                        <h3><a href="#"><?=$album->title?></a></h3>
+                        <table class="" >
+                            <tr>
+                                <th>SongID</th>
+                                <th>Title</th>
+                                <th>Author</th>
+                            </tr>
+                            <?php
+                                while ($song = $songs->fetch_object()){
+                                    include('partials/song.php');
+                                }
+                            ?>
+                        </table>
+                    <?php
+                    }
+                ?>
+                </div>
+            </div><!--END OF DIV "ACCORD"-->
                 
-            </div>      <!--END OF DIV "mainBody"-->
+            <?php
+            }//end if
+
+        ?> 
+    <script type="text/javascript" src="js/jquery-ui.js"></script>    <!--JQUERY - UI file for the whole website-->
+    <script type="text/javascript" src="js/uiAccordion.js"></script>  <!--JQUERY - UI - Accordion file for running accordion, should be at the end-->
+                
+    </div>      <!--END OF DIV "mainBody"-->
 <?php
     $page->streamBottom();
 ?>
