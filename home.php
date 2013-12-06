@@ -97,9 +97,9 @@
 	
 	<form name="addMusician_form" method="get" action="home.php">
 	    Name:
-	    <input name="name" type="text" size="40" maxlength="60" value="<?php if(isset($_GET['name'])) echo $_GET['name']; ?>"/><br/>
+	    <input name="name" type="text" size="40" maxlength="60" value="<?php if(isset($_GET['name'])) echo $_GET['name']; ?>" <?php if(isset($_GET['name'])) echo "readonly";?>/><br/>
 	    Phone Number:
-	    <input name="phoneNumber" type="text" size="40" value="<?php if(isset($_GET['phoneNumber'])) echo $_GET['phoneNumber']; ?>" maxlength="60"/><br/>
+	    <input name="phoneNumber" type="text" size="40" value="<?php if(isset($_GET['phoneNumber'])) echo $_GET['phoneNumber']; ?>" maxlength="60" <?php if(isset($_GET['name'])) echo "readonly";?>/><br/>
 	    <input type="submit" name="check_submit" value="Check Address Availability" />
 	</form>
 	
