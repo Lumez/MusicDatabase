@@ -10,7 +10,7 @@ function validateForm(){
 		  validate = false;
 	 }
 	        
-	 if (phoneNumber.trim() == "" || phoneNumber.trim() == "Enter your phone number here please..." || phoneNumber.trim().length != 11 || IsNumeric(phoneNumber)== false){
+	 if (phoneNumber.trim() == "" || phoneNumber.trim() == "Enter your phone number here please..." || phoneNumber.trim().length != 11 || IsNumeric(phoneNumber)= false){
 		  var link = document.getElementById("phoneNumber");
 		  link.setAttribute("style","color:red");
 		  link.value="Enter your phone number here please...";
