@@ -47,11 +47,11 @@ CREATE TABLE `album` (
 DROP TABLE IF EXISTS `song`;
 CREATE TABLE `song` (
 	`songID` int(15) NOT NULL auto_increment,
-	`author` varchar(20) NOT NULL,
+	`author` int(15) NOT NULL,
 	`albumID` int(15) NOT NULL,
 	`title` varchar(50) NOT NULL,
 	PRIMARY KEY  (`songID`),
-	/*FOREIGN KEY (author) REFERENCES musician(musicianID),*/
+	FOREIGN KEY (author) REFERENCES musician(musicianID),
 	FOREIGN KEY (albumID) REFERENCES album(albumID)
 );
 
@@ -59,7 +59,9 @@ DROP TABLE IF EXISTS `play_list`;
 CREATE TABLE `play_list` (
 	`musicianID` int(15) NOT NULL unique,
 	`songID` int(15) NOT NULL unique,
+	`instrumentID` int(15) NOT NULL,
 	PRIMARY KEY  (`musicianID`,`songID`),
+	FOREIGN KEY (instrumentID) REFERENCES instrument(instrumentID),
 	FOREIGN KEY (musicianID) REFERENCES musician(musicianID),
 	FOREIGN KEY (songID) REFERENCES song(songID)
 );
