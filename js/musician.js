@@ -10,7 +10,7 @@ function validateForm(){
 		  validate = false;
 	 }
 	        
-	 if (phoneNumber.trim() == "" || phoneNumber.trim() == "Enter your phoneNumber here please..."){
+	 if (phoneNumber.trim() == "" || phoneNumber.trim() == "Enter your phone number here please..." || phoneNumber.trim().length != 11){
 		  var link = document.getElementById("phoneNumber");
 		  link.setAttribute("style","color:red");
 		  link.value="Enter your phoneNumber here please...";
@@ -27,7 +27,7 @@ function validateForm(){
       
 function clearContents(area) {
 	 if (area.value.trim() == "Enter your name"
-		  || area.value.trim() == "Enter your phoneNumber here please..."
+		  || area.value.trim() == "Enter your phone number here please..."
 		  || area.value.trim() == ""){
 		  area.setAttribute("style","color:black");
 		  area.value = "";
