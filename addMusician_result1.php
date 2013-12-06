@@ -12,14 +12,10 @@
     
         <?php 
                 try{
-                    if (empty($_GET['musicianName']) OR empty($_GET['musicianNumber'])
-                         OR empty($_GET['str1']) OR empty($_GET['str2'])
-                         OR empty($_GET['city']) OR empty($_GET['zipCode'])) throw new Exception('Incorrect Data types were included');
-
-                    $db->query("INSERT INTO address (phoneNo, Street1, Street2, city, `Zip code`) VALUES ({$_GET['musicianNumber']}, '{$_GET['str1']}', '{$_GET['str2']}', '{$_GET['city']}', '{$_GET['zipCode']}')");
-                    $db->query("INSERT INTO musician (name, phoneNo) VALUES ('{$_GET['musicianName']}', '{$_GET['musicianNumber']}' )");
+                    if (empty($_GET['musicianName']) OR empty($_GET['musicianNumber'])) throw new Exception('Incorrect Data types were included');
 
                     
+                    $db->query("INSERT INTO musician (name, phoneNo) VALUES ('{$_GET['musicianName']}', '{$_GET['musicianNumber']}' )");
 
                     echo "{$_GET['musicianName']} The Musician and Address were added to the Database successfully.";
   
