@@ -13,7 +13,7 @@ function validateForm(){
 	 if (phoneNumber.trim() == "" || phoneNumber.trim() == "Enter your phone number here please..." || phoneNumber.trim().length != 11){
 		  var link = document.getElementById("phoneNumber");
 		  link.setAttribute("style","color:red");
-		  link.value="Enter your phoneNumber here please...";
+		  link.value="Enter your phone number here please...";
 		  validate = false;
 	 }
 	    
