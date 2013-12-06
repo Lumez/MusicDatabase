@@ -23,7 +23,7 @@
 		$musicians = $db->query("SELECT * FROM musician WHERE name LIKE '%{$userInput}%'");
 
 		//check to see if there are results, if not throw "No Results Found!" exception
-		if ($musicians->num_rows != 0) throw new Exception("No Results Found!");
+		if ($musicians->num_rows == 0) throw new Exception("No Results Found!");
 		
 		while($musician = $musicians->fetch_object()) {
 			include('partials/search_result.php'); // Printing out name of each result

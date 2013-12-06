@@ -1,3 +1,3 @@
 <div class="search-result">
-	<p><a href="musician.php?id=<?=$musician->musicianID?>"><?=$musician->name?></a></p>
+	<a href="musician.php?id=<?=$musician->musicianID?>"><h3><?=$musician->name?></h3></a>
 </div>
