@@ -20,7 +20,7 @@ CREATE TABLE `musician` (
 DROP TABLE IF EXISTS `instrument`;
 CREATE TABLE `instrument` (
 	`instrumentID` int(15) NOT NULL auto_increment,
-	`name:vocal` varchar(40) NOT NULL default '',
+	`name` varchar(40) NOT NULL,
 	`key:Bflat` boolean default false,
 	PRIMARY KEY  (`instrumentID`)
 );
@@ -98,6 +98,19 @@ VALUES("Aaron", 07746302219);
 /* Add Album */
 INSERT INTO album (	`musicianID`,`title`,`date`)
 VALUES(1,"The Hunger Game", NOW());
+
+/* Add Instrument */
+INSERT INTO instrument (`name`,`key:Bflat`)
+VALUES("Piano", false);
+
+INSERT INTO instrument (`name`,`key:Bflat`)
+VALUES("Trumpet", true);
+
+INSERT INTO instrument (`name`,`key:Bflat`)
+VALUES("Violin", false);
+
+INSERT INTO instrument (`name`,`key:Bflat`)
+VALUES("Vocal", false);
 
 Select * from album;
 /* DROP ALL TABLE ----------------------------------------------------------------*/
