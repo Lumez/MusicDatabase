@@ -9,6 +9,7 @@
 		
 		<script type="text/javascript" src="js/jquery-1.7.1.min.js"></script>  <!--JQUERY file for the whole website-->
 		<script type="text/javascript" src="js/toTop.js"></script>             <!--JQUERY file for the toTop Button-->
+		<script type="text/javascript" src="js/musician.js"></script>  
 		
 		<?php
 		    $bg = array(1,3,4,5,6,7,8,9,10,11,12); // array of Image Names            

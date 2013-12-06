@@ -95,11 +95,11 @@
 	<br/><hr/><br/>
 	<h2>Add Musician</h2>
 	
-	<form name="addMusician_form" method="get" action="home.php">
+	<form name="addMusician_form" method="get" action="home.php" onsubmit="return validateForm()">
 	    Name:
-	    <input name="name" type="text" size="40" maxlength="60" value="<?php if(isset($_GET['name'])) echo $_GET['name']; ?>" <?php if(isset($_GET['name'])) echo "readonly";?>/><br/>
+	    <input name="name" id="name" type="text" onfocus="clearContents(this)" size="40" maxlength="60" value="<?php if(isset($_GET['name'])) echo $_GET['name']; ?>" <?php if(isset($_GET['name'])) echo "readonly";?>/><br/>
 	    Phone Number:
-	    <input name="phoneNumber" type="text" size="40" value="<?php if(isset($_GET['phoneNumber'])) echo $_GET['phoneNumber']; ?>" maxlength="60" <?php if(isset($_GET['name'])) echo "readonly";?>/><br/>
+	    <input name="phoneNumber" id="phoneNumber" onfocus="clearContents(this)" type="text" size="40" value="<?php if(isset($_GET['phoneNumber'])) echo $_GET['phoneNumber']; ?>" maxlength="60" <?php if(isset($_GET['name'])) echo "readonly";?>/><br/>
 	    <input type="submit" name="check_submit" value="Check Address Availability" />
 	</form>
 	
