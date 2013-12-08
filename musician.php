@@ -7,9 +7,9 @@
     $page->streamTop();
 ?>           
 
-            <div class = "mainBody">
+    <div class = "mainBody">
 
-            <?php
+        <?php
             try {
                 if (!isset($_GET['id']) OR empty($_GET['id'])) throw new Exception("No musician selected!");
                 
@@ -27,7 +27,7 @@
                 //if there are more than 1 album, throw exception with error message saying library is empty
                 //if($songsPerformed->num_rows == 0) throw new Exception("Musician does not play any songs!");
                 //if($albumsAuthored->num_rows == 0) throw new Exception("Musician has not authored any albums!");
-            ?>
+        ?>
                 <br />
                 <h2>Performed Songs</h2>
 
@@ -77,9 +77,17 @@
                     }
                 ?>
                     
-                <p>Add Album</p><input type="text"></input>
-                
-                <?php
+                <input type="submit" value="Add Album"></input>
+
+            <?php    
+                if (isset($_GET['albumid']) OR empty($_GET['albumid']) == false){
+
+                    echo("<p>album's song here</p>");
+
+                }else{echo("<p>Check the album's song by selecting the album above</p>");}
+
+            ?>   
+            <?php
             } catch (Exception $e) {
                 echo "<p>{$e->getMessage()}</p><a href=\"home.php\">Home</a>";
             }
