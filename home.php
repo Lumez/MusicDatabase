@@ -46,7 +46,7 @@
 								                Street1:
 								            </td>
 								            <td>
-								                 <input class='form-control' id='str1' onfocus='clearContents2(this)' name='str1' type='text' size='40' maxlength='60'/><br/>
+								                 <input class='form-control' placeholder='Enter your Street 1' id='str1' onfocus='clearContents2(this)' name='str1' type='text' size='40' maxlength='60'/><br/>
 								            </td>
 								        </tr>
 								        <tr>
@@ -54,7 +54,7 @@
 								                Street2:
 								            </td>
 								            <td>
-								                <input class='form-control' id='str2' onfocus='clearContents2(this)' name='str2' type='text' size='40' maxlength='60'/><br/>
+								                <input class='form-control' placeholder='Enter your Street 2' id='str2' onfocus='clearContents2(this)' name='str2' type='text' size='40' maxlength='60'/><br/>
 								            </td>
 								        </tr>
 								        <tr>
@@ -62,7 +62,7 @@
 								                City:
 								            </td>
 								            <td>
-								                <input class='form-control' id='city' onfocus='clearContents2(this)' name='city' type='text' size='40' maxlength='60'/><br/>
+								                <input class='form-control' placeholder='Enter your City' id='city' onfocus='clearContents2(this)' name='city' type='text' size='40' maxlength='60'/><br/>
 								            </td>
 								        </tr>
 								        <tr>
@@ -70,12 +70,12 @@
 								                Zip Code:
 								            </td>
 								            <td>
-								                <input class='form-control' id='zipCode' onfocus='clearContents2(this)' name='zipCode' type='text' size='40' maxlength='60'/><br/>
+								                <input class='form-control' placeholder='Enter your Zip Code' id='zipCode' onfocus='clearContents2(this)' name='zipCode' type='text' size='40' maxlength='60'/><br/>
 								            </td>
 								        </tr>
-								    </table> 
+								    </table><br/> 
 								    <input type='hidden' value ='$musicianName' name='musicianName' />
-									<input type='hidden' value ='$musicianNumber' name='musicianNumber' />   
+								    <input type='hidden' value ='$musicianNumber' name='musicianNumber' />   
 								    <input class='btn btn-primary' type='submit' name='submit' value='Submit' />
 								</form>
 								</div>";
@@ -102,7 +102,7 @@
 					Name:
 				</td>
 				<td>
-					<input class="form-control" name="name" id="name" type="text" onfocus="clearContents(this)" size="40" maxlength="60" value="<?php if(isset($_GET['name'])) echo $_GET['name']; ?>" <?php if(isset($_GET['name'])) echo "readonly";?>/>
+					<input class="form-control" name="name" placeholder="Enter your name" id="name" type="text" onfocus="clearContents(this)" size="40" maxlength="60" value="<?php if(isset($_GET['name'])) echo $_GET['name']; ?>" <?php if(isset($_GET['name'])) echo "readonly";?>/>
 				</td>
 			</tr>
 			<tr>
@@ -110,7 +110,7 @@
 					Phone Number:
 				</td>
 				<td>
-					<input class="form-control" name="phoneNumber" id="phoneNumber" onfocus="clearContents(this)" type="text" size="40" value="<?php if(isset($_GET['phoneNumber'])) echo $_GET['phoneNumber']; ?>" maxlength="60" <?php if(isset($_GET['name'])) echo "readonly";?>/>
+					<input class="form-control" name="phoneNumber" placeholder="Enter your phone number here please..." id="phoneNumber" onfocus="clearContents(this)" type="text" size="40" value="<?php if(isset($_GET['phoneNumber'])) echo $_GET['phoneNumber']; ?>" maxlength="60" <?php if(isset($_GET['name'])) echo "readonly";?>/>
 				</td>
 			</tr>
 			<tr>
@@ -118,16 +118,17 @@
 					Instrument:
 				</td>
 				<td>
-					<select class="form-control">
-						<option>Flute</option>
-						<option>Accordion</option>
-						<option>Drum</option>
-						<option>Trumpet</option>
-						<option>Violin</option>
-						<option>Guitar</option>
-						<option>Piano</option>
-						<option>Violin</option>
-						<option>Clarinet</option>
+					<select name="instrument" class="form-control">
+						<option value="defaultInst">Select an instrument</option>
+						<option value="Flute">Flute</option>
+						<option value="Accordion">Accordion</option>
+						<option value="Drum">Drum</option>
+						<option value="Trumpet">Trumpet</option>
+						<option value="Violin">Violin</option>
+						<option value="Guitar">Guitar</option>
+						<option value="Piano">Piano</option>
+						<option value="Violin">Violin</option>
+						<option value="Clarinet">Clarinet</option>
 					</select>
 				</td>
 			</tr>
@@ -136,24 +137,25 @@
 					Instrument Musical Key (Optional):
 				</td>
 				<td>
-					<select class="form-control">
-						<option>A</option>
-						<option>Ab</option>
-						<option>C</option>
-						<option>B</option>
-						<option>Bb</option>
-						<option>Eb</option>
-						<option>B flat</option>
-						<option>F</option>
-						<option>G</option>
-						<option>F#</option>
-						<option>Db</option>
-						<option>D</option>
-						<option>Ab alto</option>
+					<select name="musicalKey" class="form-control">
+						<option value="defaultKey">Select a key</option>
+						<option value="A">A</option>
+						<option value="Ab">Ab</option>
+						<option value="C">C</option>
+						<option value="B">B</option>
+						<option value="Bb">Bb</option>
+						<option value="Eb">Eb</option>
+						<option value="B flat">B flat</option>
+						<option value="F">F</option>
+						<option value="G">G</option>
+						<option value="F#">F#</option>
+						<option value="Db">Db</option>
+						<option value="D">D</option>
+						<option value="Ab alto">Ab alto</option>
 					</select>
 				</td>
 			</tr>
-		</table>
+		</table><br/>
 	    <input class="btn btn-primary" type="submit" name="check_submit" value="Check Address Availability" />
 	</form>
 	

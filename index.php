@@ -21,9 +21,17 @@ if (isset($_SESSION['loggedIn']) && $_SESSION['loggedIn']==true){
 
 <div class = "mainBody">
 <form action='login.php' method='POST'>
-	Username: <input type='text' name='username' /> <br />
-	Password: <input type='password' name='password' /> <br /><br />
-	<input type='submit' value='Submit' />
+    <table>
+	<tr>
+	    <td>Username:</td>
+	    <td><input class='form-control' placeholder="Enter your username" type='text' name='username' /></td>
+	</tr>
+	<tr>
+	    <td>Password:</td>
+	    <td><input class='form-control' placeholder="Enter your password" type='password' name='password' /></td>
+	</tr><br/>
+    </table>
+    <input class='btn btn-primary' type='submit' value='Submit' />
 </form>
 </div>
 <?php
