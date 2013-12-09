@@ -80,7 +80,7 @@
                     }
                 ?>
 
-                <h2>Authored Albums</h2>
+                <h4>Albums</h4>
                 
                 <?php 
                     $albumsAuthored = $db->query("SELECT * FROM album WHERE musicianID={$_GET['id']}");
