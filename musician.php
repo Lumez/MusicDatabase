@@ -12,10 +12,6 @@
         <?php
             try {
                 if (!isset($_GET['id']) OR empty($_GET['id'])) throw new Exception("No musician selected!");
-                
-                $albumsAuthored = $db->query("SELECT * FROM album WHERE musicianID={$_GET['id']}");
-
-                $songsPerformed = $db->query("SELECT * FROM play_list WHERE musicianID={$_GET['id']}");
 
                 $musician = $db->query("SELECT name FROM musician WHERE musicianID={$_GET['id']}");
 
@@ -27,19 +23,32 @@
                 //if there are more than 1 album, throw exception with error message saying library is empty
                 //if($songsPerformed->num_rows == 0) throw new Exception("Musician does not play any songs!");
                 //if($albumsAuthored->num_rows == 0) throw new Exception("Musician has not authored any albums!");
+            } catch (Exception $e) {
+                echo "<p>{$e->getMessage()}</p><a href=\"home.php\">Home</a>";
+            }
         ?>
                 <br />
                 <h2>Performed Songs</h2>
 
-                <?php
+                <?php                 
+                    $songsPerformed = $db->query("SELECT * FROM play_list WHERE musicianID={$_GET['id']}");
+
                     if ($songsPerformed->num_rows != 0) {
+                        ?>
+                        <table class="">
+                        <tr>
+                            <th>SongID</th>
+                            <th>Title</th>
+                            <th>Author</th>
+                            <th>Instrument Used</th>
+                        </tr>
+                        <?php
                         while ($songPerformed = $songsPerformed->fetch_object()) {
-                            $song = $db->query("SELECT * FROM songs WHERE songID={$songPerformed->songID}");
-                            ?>
-                            <p><?=$song->songID?></p>
-                            <p><?=$song->title?></p>
-                            <?php
+                            include('partials/song.php');
                         }
+                        ?>
+                        </table>
+                    <?php
                     } else {
                         ?>
                         <p>Musician does not play any songs!</p>
@@ -55,6 +64,8 @@
 
                 <h2>Authored Albums</h2>
                 <?php
+                    $albumsAuthored = $db->query("SELECT * FROM album WHERE musicianID={$_GET['id']}");
+
                     if ($albumsAuthored->num_rows != 0) {
                     ?>
                     <table class="">
@@ -87,11 +98,6 @@
                 }else{echo("<p>Check the album's song by selecting the album above</p>");}
 
             ?>   
-            <?php
-            } catch (Exception $e) {
-                echo "<p>{$e->getMessage()}</p><a href=\"home.php\">Home</a>";
-            }
-            ?> 
     <script type="text/javascript" src="js/jquery-ui.js"></script>    <!--JQUERY - UI file for the whole website-->
     <script type="text/javascript" src="js/uiAccordion.js"></script>  <!--JQUERY - UI - Accordion file for running accordion, should be at the end-->
                 
