@@ -44,7 +44,7 @@
                         </tr>
                         <?php
                         while ($songPerformed = $songsPerformed->fetch_object()) {
-                            include('partials/song.php');
+                            include('partials/songPerformed.php');
                         }
                         ?>
                         </table>
@@ -52,6 +52,33 @@
                     } else {
                         ?>
                         <p>Musician does not play any songs!</p>
+                        <?php
+                    }
+                ?>
+
+                <h2>Authored Songs</h2>
+
+                <?php                 
+                    $songsAuthored = $db->query("SELECT * FROM song WHERE author={$_GET['id']}");
+
+                    if ($songsAuthored->num_rows != 0) {
+                        ?>
+                        <table class="">
+                        <tr>
+                            <th>SongID</th>
+                            <th>Title</th>
+                            <th>Album</th>
+                        </tr>
+                        <?php
+                        while ($songAuthored = $songsAuthored->fetch_object()) {
+                            include('partials/songAuthored.php');
+                        }
+                        ?>
+                        </table>
+                    <?php
+                    } else {
+                        ?>
+                        <p>Musician has not authored any songs!</p>
                         <?php
                     }
                 ?>
