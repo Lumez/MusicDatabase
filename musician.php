@@ -82,7 +82,10 @@
 
                 <h2>Authored Albums</h2>
                 
-                <?php require_once("partials/musician_album_wrapper.php"); ?>
+                <?php 
+                    $albumsAuthored = $db->query("SELECT * FROM album WHERE musicianID={$_GET['id']}");
+                    require_once("partials/musician_album_wrapper.php"); 
+                ?>
                     
                 <input type="submit" value="Add Album"></input>
 
