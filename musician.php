@@ -24,7 +24,9 @@
                 echo "<p>{$e->getMessage()}</p><a href=\"home.php\">Home</a>";
             }
         ?>
-                <br />
+              
+            <div class="page-section">
+
                 <h4>Performed Songs</h4>
 
                 <?php                 
@@ -51,7 +53,12 @@
                         <p>Musician does not play any songs!</p>
                         <?php
                     }
+
+                    require('partials/song_performed_form.php');
                 ?>
+            </div>
+
+            <div class="page-section">
 
                 <h4>Authored Songs</h4>
 
@@ -78,7 +85,10 @@
                         <p>Musician has not authored any songs!</p>
                         <?php
                     }
+
+                    require('partials/song_authored_form.php');
                 ?>
+            </div>
 
                 <h4>Produced Albums</h4>
                 

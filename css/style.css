@@ -138,18 +138,24 @@
 	}
 
 	table tr a {
-    display:block;
-    height:100%;
-    width:100%;
-}
+	    display:block;
+	    height:100%;
+	    width:100%;
+	}
 
-a { display: block; width: 100%; height: 100%; }
+	a { display: block; width: 100%; height: 100%; }
 
+	.form-container {
+		padding: 10px;
+	}
 
-
-#album_form{
-	display:none;
-}
+	.page-section {
+		margin: 15px;
+		padding: 15px;
+		background: #fff;
+		border: 1px solid #428bca;
+		border-radius: 5px;
+	}
 	
 /******************************************************** MUSICIAN.PHP END ***************************************************/	
 /******************************************************** MENU ***************************************************************/
