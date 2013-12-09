@@ -86,13 +86,16 @@
                     $albumsAuthored = $db->query("SELECT * FROM album WHERE musicianID={$_GET['id']}");
                     require_once("partials/musician_album_wrapper.php"); 
                 ?>
-                    
-                <input type="submit" value="Add Album"></input>
+                <!-- add album ========================================================================== -->
 
+                <?php require_once("partials/album_form.php"); ?>
+
+
+                <!-- ==================================================================================== -->
             <?php    
                 if (isset($_GET['albumid']) OR isset($_GET['title'])){
                     echo("<hr/>");
-                    echo("<h3>".$_GET['title']."'s song</h3>");
+                    echo("<h4>".$_GET['title']."'s song</h4>");
                     
                     // sql query to get all the song in the selected album
                     $album_song = $db->query("SELECT * FROM song WHERE AlbumID={$_GET['albumid']}");
@@ -142,7 +145,6 @@
                             </tr>
             <?php
                             $no++;
-
                         }
             ?>
                     </table>                   
@@ -157,7 +159,6 @@
                     <!-- add song here -->
                     <form action="#" onsubmit="return false;" >
                         <input type="submit" value="Add Song"/>
-
                         <!-- form here -->
                     </form>
             <?php

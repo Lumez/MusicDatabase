@@ -20,8 +20,8 @@ CREATE TABLE `musician` (
 DROP TABLE IF EXISTS `instrument`;
 CREATE TABLE `instrument` (
 	`instrumentID` int(15) NOT NULL auto_increment,
-	`name` varchar(40) NOT NULL,
-	`key:Bflat` boolean default false,
+	`name` varchar(40) NOT NULL default '',
+	`key` varchar(10) NULL,
 	PRIMARY KEY  (`instrumentID`)
 );
 
@@ -104,13 +104,22 @@ INSERT INTO instrument (`name`,`key:Bflat`)
 VALUES("Piano", false);
 
 INSERT INTO instrument (`name`,`key:Bflat`)
-VALUES("Trumpet", true);
+VALUES("Trumpet", 'C Flat');
 
 INSERT INTO instrument (`name`,`key:Bflat`)
-VALUES("Violin", false);
+VALUES("Violin", 'D Sharp');
 
-INSERT INTO instrument (`name`,`key:Bflat`)
-VALUES("Vocal", false);
+INSERT INTO instrument (`name`,`key`)
+VALUES("cello", 'B Flat');
+
+INSERT INTO db_gc1e12.instrument (`name`,`key`)
+VALUES("Flute", 'C');
+INSERT INTO db_gc1e12.instrument (`name`,`key`)
+VALUES("Accordion", 'D');
+INSERT INTO db_gc1e12.instrument (`name`,`key`)
+VALUES("Drum", 'B Flat');
+INSERT INTO db_gc1e12.instrument (`name`,`key`)
+VALUES("Clarinet", 'B Flat');
 
 Select * from album;
 /* DROP ALL TABLE ----------------------------------------------------------------*/
