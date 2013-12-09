@@ -132,6 +132,7 @@
 					</select>
 				</td>
 			</tr>
+			
 			<tr>
 				<td>
 					Instrument Musical Key (Optional):
@@ -155,8 +156,14 @@
 					</select>
 				</td>
 			</tr>
+			    
 		</table><br/>
-	    <input class="btn btn-primary" type="submit" name="check_submit" value="Check Address Availability" />
+		<div class='selectO'>
+			<div class="content" id="wrapper"></div>
+		</div><br/>
+		
+		<p><input type="button" id="more_fields" class="btn btn-success" onclick="addSelect();" value="Add more instruments" /></p><br/>
+		<p><input class="btn btn-primary" type="submit" name="check_submit" value="Check Address Availability" /></p>
 	</form>
 	
 	<?php if(isset($wholeAddress)){
