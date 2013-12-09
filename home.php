@@ -39,6 +39,58 @@
 			else{
 				$address_hide = "<div id='address_hide'>
 								    <form name='addAddress_form' method='get' action='addMusician_result.php' onsubmit='return validateForm2()'>
+								    
+								    <table>
+									<tr>
+										<td>
+											Instrument:
+										</td>
+										<td>
+											<select name='instrument' class='form-control'>
+												<option value='defaultInst'>Select an instrument</option>
+												<option value='Flute'>Flute</option>
+												<option value='Accordion'>Accordion</option>
+												<option value='Drum'>Drum</option>
+												<option value='Trumpet'>Trumpet</option>
+												<option value='Violin'>Violin</option>
+												<option value='Guitar'>Guitar</option>
+												<option value='Piano'>Piano</option>
+												<option value='Violin'>Violin</option>
+												<option value='Clarinet'>Clarinet</option>
+											</select>
+										</td>
+									</tr>
+									
+									<tr>
+										<td>
+											Instrument Musical Key (Optional):
+										</td>
+										<td>
+											<select name='musicalKey' class='form-control'>
+												<option value='defaultKey>Select a key</option>
+												<option value='A'>A</option>
+												<option value='Ab'>Ab</option>
+												<option value='C'>C</option>
+												<option value='B'>B</option>
+												<option value='Bb>Bb</option>
+												<option value='Eb'>Eb</option>
+												<option value='B flat'>B flat</option>
+												<option value='F'>F</option>
+												<option value='G'>G</option>
+												<option value='F#'>F#</option>
+												<option value='Db'>Db</option>
+												<option value='D'>D</option>
+												<option value='Ab alto'>Ab alto</option>
+											</select>
+										</td>
+									</tr>
+								    </table>
+								    <div class='selectO'>
+										<div class='content' id='wrapper'></div>
+								    </div><br/>
+								    <p><input type='button' id='more_fields' class='btn btn-success' onclick='addSelect();' value='Add more instruments' /></p><br/>
+								    
+								    
 								    <b>ADDRESS</b><br/>
 								    <table>
 								        <tr>
@@ -113,56 +165,7 @@
 					<input class="form-control" name="phoneNumber" placeholder="Enter your phone number here please..." id="phoneNumber" onfocus="clearContents(this)" type="text" size="40" value="<?php if(isset($_GET['phoneNumber'])) echo $_GET['phoneNumber']; ?>" maxlength="60" <?php if(isset($_GET['name'])) echo "readonly";?>/>
 				</td>
 			</tr>
-			<tr>
-				<td>
-					Instrument:
-				</td>
-				<td>
-					<select name="instrument" class="form-control">
-						<option value="defaultInst">Select an instrument</option>
-						<option value="Flute">Flute</option>
-						<option value="Accordion">Accordion</option>
-						<option value="Drum">Drum</option>
-						<option value="Trumpet">Trumpet</option>
-						<option value="Violin">Violin</option>
-						<option value="Guitar">Guitar</option>
-						<option value="Piano">Piano</option>
-						<option value="Violin">Violin</option>
-						<option value="Clarinet">Clarinet</option>
-					</select>
-				</td>
-			</tr>
-			
-			<tr>
-				<td>
-					Instrument Musical Key (Optional):
-				</td>
-				<td>
-					<select name="musicalKey" class="form-control">
-						<option value="defaultKey">Select a key</option>
-						<option value="A">A</option>
-						<option value="Ab">Ab</option>
-						<option value="C">C</option>
-						<option value="B">B</option>
-						<option value="Bb">Bb</option>
-						<option value="Eb">Eb</option>
-						<option value="B flat">B flat</option>
-						<option value="F">F</option>
-						<option value="G">G</option>
-						<option value="F#">F#</option>
-						<option value="Db">Db</option>
-						<option value="D">D</option>
-						<option value="Ab alto">Ab alto</option>
-					</select>
-				</td>
-			</tr>
-			    
 		</table><br/>
-		<div class='selectO'>
-			<div class="content" id="wrapper"></div>
-		</div><br/>
-		
-		<p><input type="button" id="more_fields" class="btn btn-success" onclick="addSelect();" value="Add more instruments" /></p><br/>
 		<p><input class="btn btn-primary" type="submit" name="check_submit" value="Check Address Availability" /></p>
 	</form>
 	
