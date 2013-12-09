@@ -104,7 +104,7 @@
                             <th>No</th>
                             <th>Title</th>
                             <th>Song-Writer</th>
-                            <th>Instrument</th>
+                            <th>Instruments</th>
 
                         </tr>
             <?php
@@ -129,7 +129,7 @@
                                         while($instrument = $instruments->fetch_object()){
                                             $instrumentname = $db->query("SELECT name FROM instrument WHERE instrumentID=$instrument->instrumentID")->fetch_object()->name; 
                                             
-                                                $instrumentplayed.= "$instrumentname";
+                                                $instrumentplayed.= "$instrumentname,";
                                             
                                         }
                                     }else{
