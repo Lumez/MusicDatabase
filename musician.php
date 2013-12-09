@@ -25,7 +25,7 @@
             }
         ?>
                 <br />
-                <h2>Performed Songs</h2>
+                <h4>Performed Songs</h4>
 
                 <?php                 
                     $songsPerformed = $db->query("SELECT * FROM play_list WHERE musicianID={$_GET['id']}");
@@ -53,7 +53,7 @@
                     }
                 ?>
 
-                <h2>Authored Songs</h2>
+                <h4>Authored Songs</h4>
 
                 <?php                 
                     $songsAuthored = $db->query("SELECT * FROM song WHERE author={$_GET['id']}");
@@ -80,7 +80,7 @@
                     }
                 ?>
 
-                <h4>Albums</h4>
+                <h4>Produced Albums</h4>
                 
                 <?php 
                     $albumsAuthored = $db->query("SELECT * FROM album WHERE musicianID={$_GET['id']}");
