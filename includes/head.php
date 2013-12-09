@@ -20,6 +20,7 @@
 		<style type="text/css">
 		    @import "css/style.css";
 		    @import "css/jquery-ui.css";
+		    @import "css/bootstrap.css";
 		    
 		    body{
 			background: url("img/<?php echo $selectedBg; ?>.jpg") no-repeat center center fixed;

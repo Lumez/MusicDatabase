@@ -1,4 +1,4 @@
 <form name="search_form" method="post" action="search.php">
-<input name="search" type="text" size="40" maxlength="60"/>
-<input type="submit" name="submit" value="Submit" />
+    <input class='form-control' name="search" type="text" size="40" maxlength="60"/><br/>
+    <input class="btn btn-primary" type="submit" name="submit" value="Submit" />
 </form>

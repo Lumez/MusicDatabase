@@ -33,12 +33,12 @@
 									<form action='addMusician_result1.php' method='get'>
 										<input type='hidden' value ='$musicianName' name='musicianName' />
 										<input type='hidden' value ='$musicianNumber' name='musicianNumber' />
-										<input type='submit' value='Confirm Address' />
+										<input class='btn btn-primary' type='submit' value='Confirm Address' />
 									</form>";
 			}
 			else{
 				$address_hide = "<div id='address_hide'>
-								    <form name='addAddress_form' method='get' action='addMusician_result.php'>
+								    <form name='addAddress_form' method='get' action='addMusician_result.php' onsubmit='return validateForm2()'>
 								    <b>ADDRESS</b><br/>
 								    <table>
 								        <tr>
@@ -46,7 +46,7 @@
 								                Street1:
 								            </td>
 								            <td>
-								                 <input name='str1' type='text' size='40' maxlength='60'/><br/>
+								                 <input class='form-control' id='str1' onfocus='clearContents2(this)' name='str1' type='text' size='40' maxlength='60'/><br/>
 								            </td>
 								        </tr>
 								        <tr>
@@ -54,7 +54,7 @@
 								                Street2:
 								            </td>
 								            <td>
-								                <input name='str2' type='text' size='40' maxlength='60'/><br/>
+								                <input class='form-control' id='str2' onfocus='clearContents2(this)' name='str2' type='text' size='40' maxlength='60'/><br/>
 								            </td>
 								        </tr>
 								        <tr>
@@ -62,7 +62,7 @@
 								                City:
 								            </td>
 								            <td>
-								                <input name='city' type='text' size='40' maxlength='60'/><br/>
+								                <input class='form-control' id='city' onfocus='clearContents2(this)' name='city' type='text' size='40' maxlength='60'/><br/>
 								            </td>
 								        </tr>
 								        <tr>
@@ -70,13 +70,13 @@
 								                Zip Code:
 								            </td>
 								            <td>
-								                <input name='zipCode' type='text' size='40' maxlength='60'/><br/>
+								                <input class='form-control' id='zipCode' onfocus='clearContents2(this)' name='zipCode' type='text' size='40' maxlength='60'/><br/>
 								            </td>
 								        </tr>
 								    </table> 
 								    <input type='hidden' value ='$musicianName' name='musicianName' />
 									<input type='hidden' value ='$musicianNumber' name='musicianNumber' />   
-								    <input type='submit' name='submit' value='submit' />
+								    <input class='btn btn-primary' type='submit' name='submit' value='Submit' />
 								</form>
 								</div>";
 			}
@@ -89,18 +89,72 @@
 ?>
 
 <div class = "mainBody">
-	<h1>Music Database</h1><br/>
-	<h2>Search for a musician...</h2>
+	<h3>Music Database</h3><br/>
+	<h4>Search for a musician...</h4>
 	<?php require('includes/search_form.php'); ?>
 	<br/><hr/><br/>
-	<h2>Add Musician</h2>
+	<h4>Add Musician</h4>
 	
 	<form name="addMusician_form" method="get" action="home.php" onsubmit="return validateForm()">
-	    Name:
-	    <input name="name" id="name" type="text" onfocus="clearContents(this)" size="40" maxlength="60" value="<?php if(isset($_GET['name'])) echo $_GET['name']; ?>" <?php if(isset($_GET['name'])) echo "readonly";?>/><br/>
-	    Phone Number:
-	    <input name="phoneNumber" id="phoneNumber" onfocus="clearContents(this)" type="text" size="40" value="<?php if(isset($_GET['phoneNumber'])) echo $_GET['phoneNumber']; ?>" maxlength="60" <?php if(isset($_GET['name'])) echo "readonly";?>/><br/>
-	    <input type="submit" name="check_submit" value="Check Address Availability" />
+		<table>
+			<tr>
+				<td>
+					Name:
+				</td>
+				<td>
+					<input class="form-control" name="name" id="name" type="text" onfocus="clearContents(this)" size="40" maxlength="60" value="<?php if(isset($_GET['name'])) echo $_GET['name']; ?>" <?php if(isset($_GET['name'])) echo "readonly";?>/>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					Phone Number:
+				</td>
+				<td>
+					<input class="form-control" name="phoneNumber" id="phoneNumber" onfocus="clearContents(this)" type="text" size="40" value="<?php if(isset($_GET['phoneNumber'])) echo $_GET['phoneNumber']; ?>" maxlength="60" <?php if(isset($_GET['name'])) echo "readonly";?>/>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					Instrument:
+				</td>
+				<td>
+					<select class="form-control">
+						<option>Flute</option>
+						<option>Accordion</option>
+						<option>Drum</option>
+						<option>Trumpet</option>
+						<option>Violin</option>
+						<option>Guitar</option>
+						<option>Piano</option>
+						<option>Violin</option>
+						<option>Clarinet</option>
+					</select>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					Instrument Musical Key (Optional):
+				</td>
+				<td>
+					<select class="form-control">
+						<option>A</option>
+						<option>Ab</option>
+						<option>C</option>
+						<option>B</option>
+						<option>Bb</option>
+						<option>Eb</option>
+						<option>B flat</option>
+						<option>F</option>
+						<option>G</option>
+						<option>F#</option>
+						<option>Db</option>
+						<option>D</option>
+						<option>Ab alto</option>
+					</select>
+				</td>
+			</tr>
+		</table>
+	    <input class="btn btn-primary" type="submit" name="check_submit" value="Check Address Availability" />
 	</form>
 	
 	<?php if(isset($wholeAddress)){
