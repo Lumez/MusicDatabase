@@ -63,7 +63,9 @@
                     </tr>
                 </table>
 
-                <br />
+            </div>
+            
+            <div class = "page-section">
 
                 <h4>Intruments Played</h4>
 
@@ -90,6 +92,8 @@
                         <p>Musician does not play any instruments!</p>
                         <?php
                     }
+
+                    require('partials/instrument_form.php');
                 ?>
             </div>
               

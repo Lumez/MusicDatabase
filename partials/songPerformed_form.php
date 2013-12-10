@@ -1,6 +1,6 @@
 <?php
 	$songs = $db->query("SELECT * FROM song");
-	$instruments = $db->query("SELECT * FROM instrument");
+	$instrumentsPlayed = $db->query("SELECT * FROM musician_instrument WHERE musicianID={$_GET['id']}");
 ?>
 <div class="form-container">
 	<form action="addSongPerformed_result.php" method="post" class="form-inline" role="form">
@@ -20,7 +20,8 @@
 			<label class="sr-only" for="instrument">Instrument Used</label>
 			<select class="form-control" name="instrumentID" id="instrument">
 				<?php
-					while ($instrument = $instruments->fetch_object()) {
+					while ($instrumentPlayed = $instrumentsPlayed->fetch_object()) {
+						$instrument = $db->query("SELECT * FROM instrument WHERE instrumentID={$instrumentPlayed->instrumentID}")->fetch_object();
 						?>
 						<option value="<?=$instrument->instrumentID?>"><?=$instrument->name?></option>
 						<?php
