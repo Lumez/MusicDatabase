@@ -5,8 +5,16 @@
     //$page->setTitle("Red Carpet Films - Latest Releases");
     //$page->setActiveClass("index");
     $page->streamTop();
-?>           
 
+    //redirect if id is not set
+    if(isset($_GET['id']) || empty($_GET['id'])){
+
+        header('Location:home.php');
+    }
+
+
+?>           
+    
     <div class = "mainBody">
 
         <?php
