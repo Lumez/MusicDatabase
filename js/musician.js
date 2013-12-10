@@ -91,6 +91,6 @@ function clearContents2(area) {
 }
 var x=0;
 function addSelect() {
-         document.getElementById('wrapper').innerHTML += '<tr><td>Instrument:</td><td><select name="instrument'+x+'" class="form-control"><option value="defaultInst">Select an instrument</option><option value="Flute">Flute</option><option value="Accordion">Accordion</option><option value="Drum">Drum</option><option value="Trumpet">Trumpet</option><option value="Violin">Violin</option><option value="Guitar">Guitar</option><option value="Piano">Piano</option><option value="Violin">Violin</option><option value="Clarinet">Clarinet</option></select></td></tr><tr><td>Instrument Musical Key (Optional):</td><td><select name="musicalKey" class="form-control"><option value="defaultKey">Select a key</option><option value="A">A</option><option value="Ab">Ab</option><option value="C">C</option><option value="B">B</option><option value="Bb">Bb</option><option value="Eb">Eb</option><option value="B flat">B flat</option><option value="F">F</option><option value="G">G</option><option value="F#">F#</option><option value="Db">Db</option><option value="D">D</option><option value="Ab alto">Ab alto</option></select></td></tr>';
+         document.getElementById('wrapper').innerHTML += "<table><tr><td>Instrument:</td><td><select name='instrument"+x+"' class='form-control'>'.$dude.'</select></td></tr></table>";
          x++;
 }
