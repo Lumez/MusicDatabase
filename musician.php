@@ -7,7 +7,7 @@
     $page->streamTop();
 
     //redirect if id is not set
-    if(isset($_GET['id']) || empty($_GET['id'])){
+    if(!(isset($_GET['id'])) || empty($_GET['id'])){
 
         header('Location:home.php');
     }
