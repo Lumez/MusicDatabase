@@ -237,10 +237,7 @@
             ?>
                     <hr/>
                     <!-- add song here -->
-                    <form action="#" onsubmit="return false;" >
-                        <input type="submit" value="Add Song"/>
-                        <!-- form here -->
-                    </form>
+                    
             <?php
 
                 }else{
