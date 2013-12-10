@@ -12,7 +12,18 @@
 	//$page->setTitle("Red Carpet Films - Latest Releases");
 	//$page->setActiveClass("index");
 	$page->streamTop();
+	$myVarValue = $page->getSelectionOptions();
+?>
+<script type="text/javascript">
+	var x=0;
+	var myvar = <?php echo json_encode($myVarValue); ?>;
 	
+	function addSelect() {
+		 document.getElementById('wrapper').innerHTML += "<table><tr><td>Instrument:</td><td><select name='instrument"+x+"' class='form-control'>"+myvar+"</select></td></tr></table>";
+		 x++;
+	}
+</script>
+<?php
 	//Check to see if there is already a phone number
 	if(isset($_GET['phoneNumber']) && isset($_GET['name']))
 	{
@@ -36,12 +47,7 @@
 										<input class='btn btn-primary' type='submit' value='Confirm Address' />
 									</form>";
 			}
-			else{   $instruments = $db->query("SELECT * FROM instrument");
-				$dude = "";
-				while($instrument = $instruments->fetch_object()) {
-					$dude .= "<option value='$instrument->name($instrument->key)'>$instrument->name ($instrument->key)</option>";
-					
-				}
+			else{   
 				
 				$address_hide = "<div id='address_hide'>
 								    <form name='addAddress_form' method='get' action='addMusician_result.php' onsubmit='return validateForm2()'>
@@ -53,7 +59,7 @@
 										</td>
 										<td>
 											<select name='instrument' class='form-control'>
-												".$dude."
+												".$page->getSelectionOptions()."
 											</select>
 										</td>
 									</tr>

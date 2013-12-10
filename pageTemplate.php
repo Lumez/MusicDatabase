@@ -1,48 +1,26 @@
 <?php
     class htmlPage{
-        
-        //protected $pageTitle = "Red Carpet Films";
-        //protected $a, $b, $c;
-        //protected $welcomeMes;
-        //    
-        //public function setTitle($newTitle){
-        //      $this->pageTitle = $newTitle;
-        //      return;
-        //}
-        //
-        //
-        //public function setActiveClass($fileName){
-        //      if ($fileName == "index"){
-        //        $this->a = "current_page_item";
-        //      }
-        //      if ($fileName == "film"){
-        //        $this->b = "current_page_item";
-        //      }
-        //      if ($fileName == "genre"){
-        //        $this->c = "current_page_item";
-        //      }
-        //      else{
-        //        return;
-        //      }
-        //}
-        
+        public $selectOptions;
+	
+	public function getSelectionOptions(){
+	    require('includes/dbConnect.php');
+	    
+	    $instruments = $db->query("SELECT * FROM instrument");
+	    $selectOptions = "";
+	    while($instrument = $instruments->fetch_object()) {
+		    $selectOptions .= "<option value='$instrument->name($instrument->key)'>$instrument->name ($instrument->key)</option>";
+	    }
+	    return $selectOptions;
+	}
         
         public function streamTop(){
-          
-?>
-	
-		<?php require('includes/header.php'); ?> 
-                    
-<?php
+		require('includes/header.php');
+
         }
     
         
         public function streamBottom(){
-
-?>
-                <?php require('includes/footer.php'); ?> 
-
-<?php
+                require('includes/footer.php'); 
         }
     }
 ?>

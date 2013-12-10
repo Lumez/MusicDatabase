@@ -89,8 +89,4 @@ function clearContents2(area) {
 		  area.value = "";
 	 }
 }
-var x=0;
-function addSelect() {
-         document.getElementById('wrapper').innerHTML += "<table><tr><td>Instrument:</td><td><select name='instrument"+x+"' class='form-control'>'.$dude.'</select></td></tr></table>";
-         x++;
-}
+
