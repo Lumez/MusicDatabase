@@ -179,7 +179,7 @@
             <?php    
                 if (isset($_GET['albumid']) OR isset($_GET['title'])){
                     echo("<hr/>");
-                    echo("<h4>".$_GET['title']."'s song</h4>");
+                    echo("<h4>Songs in '".$_GET['title']."'</h4>");
                     
                     // sql query to get all the song in the selected album
                     $album_song = $db->query("SELECT * FROM song WHERE AlbumID={$_GET['albumid']}");
