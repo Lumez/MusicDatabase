@@ -102,11 +102,11 @@
                 <h4>Performed Songs</h4>
 
                 <?php                 
-                    $songsPerformed = $db->query("SELECT * FROM play_list WHERE musicianID={$_GET['id']}");
+                    $songsPerformed = $db->query("SELECT * FROM play_list WHERE musicianID={$_GET['id']} ORDER BY songID ASC");
 
                     if ($songsPerformed->num_rows != 0) {
                         ?>
-                        <table class="">
+                        <table class="table">
                         <tr>
                             <th>SongID</th>
                             <th>Title</th>
@@ -139,7 +139,7 @@
 
                     if ($songsAuthored->num_rows != 0) {
                         ?>
-                        <table class="">
+                        <table class="table">
                         <tr>
                             <th>SongID</th>
                             <th>Title</th>
