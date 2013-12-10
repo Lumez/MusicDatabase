@@ -62,7 +62,7 @@
                         <?php
                     }
 
-                    require('partials/song_performed_form.php');
+                    require('partials/songPerformed_form.php');
                 ?>
             </div>
 
@@ -94,7 +94,7 @@
                         <?php
                     }
 
-                    require('partials/song_authored_form.php');
+                    require('partials/songAuthored_form.php');
                 ?>
             </div>
 

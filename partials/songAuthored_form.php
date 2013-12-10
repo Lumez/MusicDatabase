@@ -2,14 +2,14 @@
 	$albums = $db->query("SELECT * FROM album");
 ?>
 <div class="form-container">
-	<form class="form-inline" role="form">
+	<form action="addSongAuthored_result.php" method="post" class="form-inline" role="form">
 		<div class="form-group">
 			<label class="sr-only" for="songTitle">Song Title</label>
-			<input type="email" class="form-control" id="songTitle" placeholder="Enter Title">
+			<input type="text" name="songTitle" class="form-control" id="songTitle" placeholder="Enter Title">
 		</div>
 		<div class="form-group">
 			<label class="sr-only" for="album">Album</label>
-			<select class="form-control" id="album">
+			<select class="form-control" name="albumID" id="album">
 				<?php
 					while ($album = $albums->fetch_object()) {
 						?>
@@ -19,6 +19,7 @@
 				?>
 			</select>
 		</div>
+		<input type="hidden" name="musicianID" value="<?=$_GET['id']?>">
 		<button type="submit" class="btn btn-success">+</button>
 	</form>
 </div>
