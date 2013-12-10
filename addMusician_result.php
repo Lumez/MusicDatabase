@@ -16,7 +16,6 @@
 			
 			if (!isset($_GET['musicianNumber']) OR empty($_GET['musicianNumber']) OR !is_numeric(($_GET['musicianNumber']))) throw new Exception('Invalid telephone number');
 			if (!isset($_GET['str1']) OR empty($_GET['str1'])) throw new Exception('Invalid street 1');
-			if (!isset($_GET['str2']) OR empty($_GET['str2'])) throw new Exception('Invalid street 2');
 			if (!isset($_GET['city']) OR empty($_GET['city'])) throw new Exception('Invalid city');
 			if (!isset($_GET['zipCode']) OR empty($_GET['zipCode'])) throw new Exception('Invalid Zip Code');
 			if (!isset($_GET['instrument0']) OR empty($_GET['instrument0'])) throw new Exception('Invalid instrument');

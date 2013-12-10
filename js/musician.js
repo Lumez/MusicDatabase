@@ -37,7 +37,6 @@ function clearContents(area) {
 function validateForm2(){
          
          var str1 = document.getElementById("str1").value;
-         var str2 = document.getElementById("str2").value;
          var city = document.getElementById("city").value;
          var zipCode = document.getElementById("zipCode").value;
          
@@ -47,13 +46,6 @@ function validateForm2(){
 		  var link = document.getElementById("str1");
 		  link.setAttribute("style","color:red");
 		  link.value = "Enter your Street 1";
-		  validate = false;
-	 }
-         
-         if (str2.trim() == "" || str2.trim() == "Enter your Street 2"){                
-		  var link = document.getElementById("str2");
-		  link.setAttribute("style","color:red");
-		  link.value = "Enter your Street 2";
 		  validate = false;
 	 }
          
@@ -81,7 +73,6 @@ function validateForm2(){
 
 function clearContents2(area) {
 	 if (area.value.trim() == "Enter your Street 1"
-                  || area.value.trim() == "Enter your Street 2"
                   || area.value.trim() == "Enter your City"
                   || area.value.trim() == "Enter your Zip Code"
 		  || area.value.trim() == ""){

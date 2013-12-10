@@ -9,10 +9,9 @@
 	<h1>Confirmation Results</h1>
 	<p><a href = "home.php">Back to Homepage</a></p>
     
-    
         <?php 
                 try{
-                    if (empty($_GET['musicianName']) OR empty($_GET['musicianNumber'])) throw new Exception('Incorrect Data types were included');
+                    if (empty($_GET['musicianName']) OR empty($_GET['musicianNumber']) OR !is_numeric(($_GET['musicianNumber']))) throw new Exception('Incorrect Data types were included');
 
                     
                     $db->query("INSERT INTO musician (name, phoneNo) VALUES ('{$_GET['musicianName']}', '{$_GET['musicianNumber']}' )");
