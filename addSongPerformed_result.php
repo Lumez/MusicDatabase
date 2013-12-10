@@ -15,7 +15,7 @@
 				throw new Exception('Please complete all the fields.');
 			}
 
-			$db->query("INSERT INTO play_list (songID, instrumentID, author) VALUES ({$_POST['songID']}, {$_POST['instrumentID']}, {$_POST['musicianID']})");
+			$db->query("INSERT INTO play_list (songID, instrumentID, musicianID) VALUES ({$_POST['songID']}, {$_POST['instrumentID']}, {$_POST['musicianID']})");
 			
 			?>
 			<div class="alert alert-success">

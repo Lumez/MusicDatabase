@@ -1,5 +1,5 @@
 <?php
-	$albums = $db->query("SELECT * FROM album");
+	$albums = $db->query("SELECT * FROM album WHERE musicianID={$_GET['id']}");
 ?>
 <div class="form-container">
 	<form action="addSongAuthored_result.php" method="post" class="form-inline" role="form">
