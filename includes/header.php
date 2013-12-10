@@ -17,5 +17,13 @@
 		    <div id="menu-wrapper">
 			<ul id="menu">
 			    <li class="current_page_item"><a href="index.php"><div>Homepage</div></a></li>
+
+			    <?php
+
+			    	if(isset($_SESSION["loggedIn"]) && $_SESSION["loggedIn"] = true){ // check if session is logged in
+			    		echo("<li class='current_page_item'><a href='logout.php'><div>Logout</div></a></li>");
+			    	}
+
+			    ?>
 			</ul>
 		    </div>
