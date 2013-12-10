@@ -8,7 +8,7 @@
 	    $instruments = $db->query("SELECT * FROM instrument");
 	    $selectOptions = "";
 	    while($instrument = $instruments->fetch_object()) {
-		    $selectOptions .= "<option value='$instrument->name($instrument->key)'>$instrument->name ($instrument->key)</option>";
+		    $selectOptions .= "<option value='$instrument->instrumentID'>$instrument->name ($instrument->key)</option>";
 	    }
 	    return $selectOptions;
 	}

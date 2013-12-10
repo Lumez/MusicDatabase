@@ -15,7 +15,7 @@
 	$myVarValue = $page->getSelectionOptions();
 ?>
 <script type="text/javascript">
-	var x=0;
+	var x=1;
 	var myvar = <?php echo json_encode($myVarValue); ?>;
 	
 	function addSelect() {
@@ -58,7 +58,7 @@
 											Instrument:
 										</td>
 										<td>
-											<select name='instrument' class='form-control'>
+											<select name='instrument0' class='form-control'>
 												".$page->getSelectionOptions()."
 											</select>
 										</td>
