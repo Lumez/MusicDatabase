@@ -27,14 +27,17 @@
 			$last = $db->insert_id;
 			
 			$i=0;
-			do{
+			while (isset($_GET['instrument'.$i])) {
 				$instrument = 'instrument'.$i;
-				echo "$_GET[$instrument] ";
-				$dude = $_GET[$instrument];
-				$db->query("INSERT INTO musician_instrument (instrumentID, musicianID) VALUES ('".mysql_real_escape_string($dude)."', $last)");
-			        echo "$instrument ";
+				$instrumentID = $_GET[$instrument];
+
+				$result = $db->query("SELECT * FROM musician_instrument WHERE musicianID={$last} AND instrumentID={$instrumentID}");
+
+				if ($result->num_rows == 0) {
+					$db->query("INSERT INTO musician_instrument (instrumentID, musicianID) VALUES ({$instrumentID}, {$last})");
+				}
 				$i++;
-			}while (isset($_GET['instrument'.$i]));
+			}
 			
 			
 			//$db->query("INSERT INTO instrument (name, key) VALUES ('{$_GET['instrument']}', '{$_GET['musicalKey']}' )");
