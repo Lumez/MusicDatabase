@@ -15,8 +15,9 @@
 
 		<input type="submit" value="submit">
 		<br/>
-
+		<button type="button" class="btn btn-info" id="showform" onclick="$( '#album_form' ).hide();$( '#showform' ).show();">-Close Form-</button>
 	</form>
 </div>
 
 <script type="text/javascript"src="js/albumformValidator.js"></script>
+
