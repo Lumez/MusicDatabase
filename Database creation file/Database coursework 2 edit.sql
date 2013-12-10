@@ -57,10 +57,11 @@ CREATE TABLE `song` (
 
 DROP TABLE IF EXISTS `play_list`;
 CREATE TABLE `play_list` (
+	`id` int(15) NOT NULL,
 	`musicianID` int(15) NOT NULL unique,
 	`songID` int(15) NOT NULL unique,
 	`instrumentID` int(15) NOT NULL,
-	PRIMARY KEY  (`musicianID`,`songID`),
+	PRIMARY KEY  (`id`),
 	FOREIGN KEY (instrumentID) REFERENCES instrument(instrumentID),
 	FOREIGN KEY (musicianID) REFERENCES musician(musicianID),
 	FOREIGN KEY (songID) REFERENCES song(songID)
