@@ -110,6 +110,7 @@
                         <tr>
                             <th>SongID</th>
                             <th>Title</th>
+                            <th>Album</th>
                             <th>Author</th>
                             <th>Instrument Used</th>
                         </tr>
