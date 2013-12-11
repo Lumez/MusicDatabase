@@ -12,8 +12,7 @@
     
         <?php 
                 try{
-                	print_r($_POST);
-                	exit();
+                	
                     if (!isset($_POST['musicianName']) OR empty($_POST['musicianName'])) throw new Exception('Invalid name');
 			
 			if (!isset($_POST['musicianNumber']) OR empty($_POST['musicianNumber']) OR !is_numeric(($_POST['musicianNumber']))) throw new Exception('Invalid telephone number');
@@ -44,7 +43,7 @@
 			//$db->query("INSERT INTO instrument (name, key) VALUES ('{$_POST['instrument']}', '{$_POST['musicalKey']}' )");
 			
 		    
-                    echo "{$_POST['musicianName']} The $last Musician and Address were added to the Database successfully.";
+                    echo "<p class='alert alert-success'>The musician number $last, {$_POST['musicianName']}, and the address were added to the Database successfully.<p>";
   
                  
                 }catch(Exception $e){
