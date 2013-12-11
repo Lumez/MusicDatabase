@@ -9,6 +9,7 @@
 	$musicians = $db->query("SELECT * FROM musician LIMIT 0,5");
 ?>
 	<div class="page-section">
+		<h3> Musician's List</h3>
 		<table class="">
 		    <tr>
 		        <th>Name</th>

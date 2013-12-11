@@ -215,11 +215,17 @@
                                         $instrumentplayed = "";
 
                                         while($instrument = $instruments->fetch_object()){
+
+                                            if($instrumentplayed != ""){
+                                                $instrumentplayed.= ", ";
+                                            }
+
                                             $instrumentname = $db->query("SELECT name FROM instrument WHERE instrumentID=$instrument->instrumentID")->fetch_object()->name; 
                                             
-                                                $instrumentplayed.= "$instrumentname,";
+                                                $instrumentplayed.= "$instrumentname";
                                             
                                         }
+                                        $instrumentplayed.= ".";
                                     }else{
                                         $instrumentplayed="none";
                                     }
