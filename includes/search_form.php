@@ -10,6 +10,7 @@
 ?>
 	<div class="page-section">
 		<h3> Musician's List</h3>
+		<hr/>
 		<table class="">
 		    <tr>
 		        <th>Name</th>
@@ -23,6 +24,7 @@
 				<tr class="targettablerow">
 					<td><a href="musician.php?id=<?= $musician->musicianID ?>"><?=$musician->name?></a></td>
 		    		<td><?=$musician->phoneNo?></td>
+
 				</tr>
 
 	<?php
