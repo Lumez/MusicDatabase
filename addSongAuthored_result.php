@@ -15,7 +15,7 @@
 				throw new Exception('Please complete all the fields.');
 			}
 
-			$db->query("INSERT INTO song (title, albumID, author) VALUES ('{$_POST['songTitle']}', {$_POST['albumID']}, {$_POST['musicianID']})");
+			$db->query("INSERT INTO song (title, albumID, author) VALUES ('{$db->real_escape_string($_POST['songTitle'])}', {$_POST['albumID']}, {$_POST['musicianID']})");
 			
 			?>
 			<div class="alert alert-success">
