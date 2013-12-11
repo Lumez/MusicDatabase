@@ -11,12 +11,12 @@
     
         <?php 
                 try{
-                    if (empty($_GET['musicianName']) OR empty($_GET['musicianNumber']) OR !is_numeric(($_GET['musicianNumber']))) throw new Exception('Incorrect Data types were included');
+                    if (empty($_POST['musicianName']) OR empty($_POST['musicianNumber']) OR !is_numeric(($_POST['musicianNumber']))) throw new Exception('Incorrect Data types were included');
 
                     
-                    $db->query("INSERT INTO musician (name, phoneNo) VALUES ('{$db->real_escape_string($_GET['musicianName'])}', '{$db->real_escape_string($_GET['musicianNumber'])}' )");
+                    $db->query("INSERT INTO musician (name, phoneNo) VALUES ('{$db->real_escape_string($_POST['musicianName'])}', '{$_POST['musicianNumber']}' )");
 
-                    echo "{$_GET['musicianName']} The Musician and Address were added to the Database successfully.";
+                    echo "{$_POST['musicianName']} The Musician and Address were added to the Database successfully.";
   
                  
                 }catch(Exception $e){

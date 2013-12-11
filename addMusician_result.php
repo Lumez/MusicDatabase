@@ -12,23 +12,25 @@
     
         <?php 
                 try{
-                    if (!isset($_GET['musicianName']) OR empty($_GET['musicianName'])) throw new Exception('Invalid name');
+                	print_r($_POST);
+                	exit();
+                    if (!isset($_POST['musicianName']) OR empty($_POST['musicianName'])) throw new Exception('Invalid name');
 			
-			if (!isset($_GET['musicianNumber']) OR empty($_GET['musicianNumber']) OR !is_numeric(($_GET['musicianNumber']))) throw new Exception('Invalid telephone number');
-			if (!isset($_GET['str1']) OR empty($_GET['str1'])) throw new Exception('Invalid street 1');
-			if (!isset($_GET['city']) OR empty($_GET['city'])) throw new Exception('Invalid city');
-			if (!isset($_GET['zipCode']) OR empty($_GET['zipCode'])) throw new Exception('Invalid Zip Code');
-			if (!isset($_GET['instrument0']) OR empty($_GET['instrument0'])) throw new Exception('Invalid instrument');
+			if (!isset($_POST['musicianNumber']) OR empty($_POST['musicianNumber']) OR !is_numeric(($_POST['musicianNumber']))) throw new Exception('Invalid telephone number');
+			if (!isset($_POST['str1']) OR empty($_POST['str1'])) throw new Exception('Invalid street 1');
+			if (!isset($_POST['city']) OR empty($_POST['city'])) throw new Exception('Invalid city');
+			if (!isset($_POST['zipCode']) OR empty($_POST['zipCode'])) throw new Exception('Invalid Zip Code');
+			if (!isset($_POST['instrument0']) OR empty($_POST['instrument0'])) throw new Exception('Invalid instrument');
 
-			$db->query("INSERT INTO address (phoneNo, Street1, Street2, city, `Zip code`) VALUES ({$_GET['musicianNumber']}, '{$db->real_escape_string($_GET['str1'])}', '{$db->real_escape_string($_GET['str2'])}', '{$db->real_escape_string($_GET['city'])}', '{$db->real_escape_string($_GET['zipCode'])}')");
-			$db->query("INSERT INTO musician (name, phoneNo) VALUES ('{$db->real_escape_string($_GET['musicianName'])}', {$_GET['musicianNumber']} )");
+			$db->query("INSERT INTO address (phoneNo, Street1, Street2, city, `Zip code`) VALUES ({$_POST['musicianNumber']}, '{$db->real_escape_string($_POST['str1'])}', '{$db->real_escape_string($_POST['str2'])}', '{$db->real_escape_string($_POST['city'])}', '{$db->real_escape_string($_POST['zipCode'])}')");
+			$db->query("INSERT INTO musician (name, phoneNo) VALUES ('{$db->real_escape_string($_POST['musicianName'])}', {$_POST['musicianNumber']} )");
 			
 			$last = $db->insert_id;
 			
 			$i=0;
-			while (isset($_GET['instrument'.$i])) {
+			while (isset($_POST['instrument'.$i])) {
 				$instrument = 'instrument'.$i;
-				$instrumentID = $_GET[$instrument];
+				$instrumentID = $_POST[$instrument];
 
 				$result = $db->query("SELECT * FROM musician_instrument WHERE musicianID={$last} AND instrumentID={$instrumentID}");
 
@@ -39,10 +41,10 @@
 			}
 			
 			
-			//$db->query("INSERT INTO instrument (name, key) VALUES ('{$_GET['instrument']}', '{$_GET['musicalKey']}' )");
+			//$db->query("INSERT INTO instrument (name, key) VALUES ('{$_POST['instrument']}', '{$_POST['musicalKey']}' )");
 			
 		    
-                    echo "{$_GET['musicianName']} The $last Musician and Address were added to the Database successfully.";
+                    echo "{$_POST['musicianName']} The $last Musician and Address were added to the Database successfully.";
   
                  
                 }catch(Exception $e){

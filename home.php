@@ -25,14 +25,14 @@
 </script>
 <?php
 	//Check to see if there is already a phone number
-	if(isset($_GET['phoneNumber']) && isset($_GET['name']))
+	if(isset($_POST['phoneNumber']) && isset($_POST['name']))
 	{
-		$phoneNumber = $_GET['phoneNumber'];
+		$phoneNumber = $_POST['phoneNumber'];
 		$addresses = $db->query("SELECT * FROM address");
 		
 		while ($address = $addresses->fetch_object()){
-				$musicianName = $_GET['name'];
-				$musicianNumber = $_GET['phoneNumber'];
+				$musicianName = $db->real_escape_string($_POST['name']);
+				$musicianNumber = $_POST['phoneNumber'];
 			if ($address->phoneNo == (int)$phoneNumber){
 				
 				$wholeAddress =  "<p>$address->Street1<br/>
@@ -41,7 +41,7 @@
 									.$address->{'Zip code'}."<br/>
 									</p><br/>
 									
-									<form action='addMusician_result1.php' method='get'>
+									<form action='addMusician_result1.php' method='post'>
 										<input type='hidden' value ='$musicianName' name='musicianName' />
 										<input type='hidden' value ='$musicianNumber' name='musicianNumber' />
 										<input class='btn btn-primary' type='submit' value='Confirm Address' />
@@ -50,7 +50,7 @@
 			else{   
 				
 				$address_hide = "<div id='address_hide'>
-								    <form name='addAddress_form' method='get' action='addMusician_result.php' onsubmit='return validateForm2()'>
+								    <form name='addAddress_form' method='post' action='addMusician_result.php' onsubmit='return validateForm2()'>
 								    
 								    <table>
 									<tr>
@@ -125,14 +125,14 @@
 	<br/><hr/><br/>
 	<h4>Add Musician</h4>
 	
-	<form name="addMusician_form" method="get" action="home.php" onsubmit="return validateForm()">
+	<form name="addMusician_form" method="post" action="home.php" onsubmit="return validateForm()">
 		<table>
 			<tr>
 				<td>
 					Name:
 				</td>
 				<td>
-					<input class="form-control" name="name" placeholder="Enter your name" id="name" type="text" onfocus="clearContents(this)" size="40" maxlength="60" value="<?php if(isset($_GET['name'])) echo $_GET['name']; ?>" <?php if(isset($_GET['name'])) echo "readonly";?>/>
+					<input class="form-control" name="name" placeholder="Enter your name" id="name" type="text" onfocus="clearContents(this)" size="40" maxlength="60" value="<?php if(isset($_POST['name'])) echo $_POST['name']; ?>" <?php if(isset($_POST['name'])) echo "readonly";?>/>
 				</td>
 			</tr>
 			<tr>
@@ -140,7 +140,7 @@
 					Phone Number:
 				</td>
 				<td>
-					<input class="form-control" name="phoneNumber" placeholder="Enter your phone number here please..." id="phoneNumber" onfocus="clearContents(this)" type="text" size="40" value="<?php if(isset($_GET['phoneNumber'])) echo $_GET['phoneNumber']; ?>" maxlength="60" <?php if(isset($_GET['name'])) echo "readonly";?>/>
+					<input class="form-control" name="phoneNumber" placeholder="Enter your phone number here please..." id="phoneNumber" onfocus="clearContents(this)" type="text" size="40" value="<?php if(isset($_POST['phoneNumber'])) echo $_POST['phoneNumber']; ?>" maxlength="60" <?php if(isset($_POST['name'])) echo "readonly";?>/>
 				</td>
 			</tr>
 		</table><br/>
