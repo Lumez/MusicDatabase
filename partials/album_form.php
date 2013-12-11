@@ -8,7 +8,8 @@
 
 	<form role="form" action="addAlbum_process.php" method="POST" onsubmit="return albumformValidator();">
 		<input type="hidden" class="form-control" placeholder="Enter album title" name="musicianID" value="<?= $_GET['id']?>">
-		Title: 	<input type="title" id="title" placeholder="Enter album title" name="title" style="width:300px;" onfocus="clearContents(this);">
+		<!-- main visible title text input -->
+		Title: 	<input type="text" id="title" placeholder="Enter album title" name="title" style="width:400px;" onfocus="clearContents(this);">
 
 				
 		<br/><br/> 
