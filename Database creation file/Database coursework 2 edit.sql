@@ -122,7 +122,7 @@ VALUES("Drum", 'B Flat');
 INSERT INTO db_gc1e12.instrument (`name`,`key`)
 VALUES("Clarinet", 'B Flat');
 
-DELETE FROM album where albumID = 22;
+DELETE FROM album where albumID = 25;
 
 Select * from album;
 /* DROP ALL TABLE ----------------------------------------------------------------*/
