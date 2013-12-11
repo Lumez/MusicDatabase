@@ -2,7 +2,7 @@
 	require('includes/dbConnect.php');
 
 	$musicianID= $_POST["musicianID"];
-	$title= $_POST["title"];
+	$title=  $db->real_escape_string($_POST["title"]);
 	$date= date('Y-m-d');
 	
 	if(isset($musicianID) && isset($title) && isset($date)){
