@@ -23,6 +23,7 @@
 				<tr class="targettablerow">
 					<td><a href="musician.php?id=<?= $musician->musicianID ?>"><?=$musician->name?></a></td>
 		    		<td><?=$musician->phoneNo?></td>
+
 				</tr>
 
 	<?php
