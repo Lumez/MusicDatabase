@@ -6,10 +6,10 @@
 <?php
 
 	//display all musician
-	$musicians = $db->query("SELECT * FROM musician LIMIT 0,5");
+	$musicians = $db->query("SELECT * FROM musician ORDER BY musicianID DESC LIMIT 10");
 ?>
 	<div class="page-section">
-		<h3> Musician's List</h3>
+		<h3>10 most recently added Musicians</h3>
 		<table class="">
 		    <tr>
 		        <th>Name</th>
