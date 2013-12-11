@@ -20,8 +20,8 @@
 			if (!isset($_GET['zipCode']) OR empty($_GET['zipCode'])) throw new Exception('Invalid Zip Code');
 			if (!isset($_GET['instrument0']) OR empty($_GET['instrument0'])) throw new Exception('Invalid instrument');
 
-			$db->query("INSERT INTO address (phoneNo, Street1, Street2, city, `Zip code`) VALUES ({$_GET['musicianNumber']}, '{$_GET['str1']}', '{$_GET['str2']}', '{$_GET['city']}', '{$_GET['zipCode']}')");
-			$db->query("INSERT INTO musician (name, phoneNo) VALUES ('{$_GET['musicianName']}', {$_GET['musicianNumber']} )");
+			$db->query("INSERT INTO address (phoneNo, Street1, Street2, city, `Zip code`) VALUES ({$_GET['musicianNumber']}, '{$db->real_escape_string($_GET['str1'])}', '{$db->real_escape_string($_GET['str2'])}', '{$db->real_escape_string($_GET['city'])}', '{$db->real_escape_string($_GET['zipCode'])}')");
+			$db->query("INSERT INTO musician (name, phoneNo) VALUES ('{$db->real_escape_string($_GET['musicianName'])}', {$_GET['musicianNumber']} )");
 			
 			$last = $db->insert_id;
 			

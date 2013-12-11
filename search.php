@@ -17,7 +17,7 @@
 		if(!isset($_POST['search']) || empty($_POST['search'])) throw new Exception("Invalid Search, please try again.");
 
 		//stores the post parameter from the HTML form
-		$userInput= $_POST['search'];
+		$userInput= $db->real_escape_string($_POST['search']);
 
 		//SQL query - will select entries if they are LIKE the user input $_POST['search']
 		$musicians = $db->query("SELECT * FROM musician WHERE name LIKE '%{$userInput}%'");
